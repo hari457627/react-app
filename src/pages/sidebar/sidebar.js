@@ -20,8 +20,6 @@ class Sidebar extends Component {
     return true;
   }
 
-
-
   render() {
     return (
       <div className="nav-side-menu">

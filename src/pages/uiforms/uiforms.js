@@ -27,10 +27,56 @@ class Uiforms extends Component {
 
   onSubmit(){
     var formObj = this.state;
-    this.props.saveForm(formObj)
+    var sampleObj = [
+      {
+        "type":"input",
+        "inputType":"text",
+        "label":"enter your name",
+        "required":"false"
+      },
+      {
+        "type":"input",
+        "inputType":"email",
+        "label":"enter your email",
+        "required":"true"
+      },
+      {
+        "type":"input",
+        "inputType":"number",
+        "label":"enter your mobile",
+        "required":"true"
+      },
+      {
+        "type":"input",
+        "inputType":"password",
+        "label":"enter your password",
+        "required":"true"
+      },
+      {
+        "type":"input",
+        "inputType":"password",
+        "label":"confirm your password",
+        "required":"true"
+      },
+      {
+        "type":"radio",
+        "label":"select your gender",
+        "required":"true",
+        "options":["male","female"]
+      },
+      {
+        "type":"multiselect",
+        "label":"select your hobbies",
+        "required":"true",
+        "options":["playing cricket","reading books","browsing internet","other"]
+      }
+    ];
+    var finalObj = {};
+    finalObj.fields = [];
+    finalObj.fields = sampleObj;
+    console.log(finalObj);
+    this.props.saveForm(finalObj)
   }
-
-  
 
   noOfInputsChange(e){
     e.preventDefault();
@@ -59,7 +105,6 @@ class Uiforms extends Component {
     }
     this.setState({field1});
   }
-
 
   render() {
     return (
