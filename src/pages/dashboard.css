@@ -1,0 +1,13 @@
+.dashboardcontentbody{
+  width: calc(100% - 300px);
+  max-height: calc(100vh - 70px);
+  float: left;
+  overflow: scroll;
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  .dashboardcontentbody{
+    width: 100%;
+  }
+  }

@@ -1,0 +1,42 @@
+.login-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.panel-heading {
+  padding: 5px 15px;
+}
+
+.panel-footer {
+padding: 1px 15px;
+color: #A0A0A0;
+}
+
+.panel-footer a {
+  cursor: pointer;
+}
+
+.profile-img {
+width: 96px;
+height: 96px;
+margin: 0 auto 10px;
+display: block;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+}
+
+.modal.fade.show{
+  opacity: 1 !important;
+}
+
+.modal-backdrop.fade.show{
+  opacity: 0.5 !important;
+}
+
+.btn-secondary{
+  color:#fff !important;
+  background-color: #337ab7 !important;
+  border-color: #2e6da4 !important;
+}
