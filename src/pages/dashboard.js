@@ -12,7 +12,20 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       formData : {},
-      tabIndex: 1
+      tabIndex: 1,
+      user:''
+    }
+  }
+
+  componentWillMount(){
+    var user = localStorage.getItem('user');
+    if(user == null){
+      this.props.history.push({
+        pathname: '/login'
+      })
+    }
+    else if(user !== null){
+      this.setState({user:JSON.parse(localStorage.getItem('user')).name})
     }
   }
 
@@ -29,9 +42,15 @@ class Dashboard extends Component {
   saveFormMethod = (formObj)=>{
     console.log(formObj);
     this.setState({formData:formObj});
-    this.setState({tabIndex:6});
+    this.setState({tabIndex:6},()=>console.log(this.state));
     this.renderPage();
+    this.props.match.params.page = 'createdForms';
   }
+
+  handleTabIndex = (index) => {
+    this.setState({tabIndex:index})
+  }
+
   renderPage = ()=>{
     var page = this.props.match.params.page;
     switch (page){
@@ -51,8 +70,8 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <Header user={this.props.location.state} handleLogOut={this.handleLogOut}></Header>
-        <Sidebar></Sidebar>
+        <Header user={this.state.user} handleLogOut={this.handleLogOut}></Header>
+        <Sidebar tabIndex={this.state.tabIndex} handleTabIndex={e => this.handleTabIndex(e)}></Sidebar>
         <div className="dashboardcontentbody">
           {this.renderPage()}
         </div>

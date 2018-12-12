@@ -19,12 +19,8 @@ class Login extends Component {
   }
 
   componentWillMount(){
-    console.log('exec');
-    if(this.props.location.state){
-      this.setState({isUserLoggedIn: this.props.location.state.isUserLoggedIn});
-    }
     var user = localStorage.getItem('user');
-    if(user !==null && JSON.parse(user).isUserLoggedIn){
+    if(user !==null){
       this.props.history.push({
         pathname: '/app/dashboard',
         state: { userName: JSON.parse(user).name }

@@ -7,13 +7,11 @@ import routes from './../../routes';
 class Header extends Component {
   constructor(props){
     super(props);
+    console.log(props);
   }
 
   handleLogout = () =>{
     localStorage.clear();
-
-    console.log(this.props);
-    // this.props.history.push("/login"); 
     this.props.handleLogOut()
   }
 
@@ -32,7 +30,7 @@ class Header extends Component {
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><p className="navbar-text">Hello</p></li>
+              <li><p className="navbar-text">Hello {this.props.user}</p></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown"><img src={userLogo} className="userLogoSettings"/><span className="caret"></span></a>
                 <ul id="login-dp" className="dropdown-menu">
