@@ -3,6 +3,8 @@ import { Router, Route, Switch} from 'react-router-dom';
 import './login.css';
 import Alert from './../alerts/alerts';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import GoogleLogin from 'react-google-login';
+
 class Login extends Component {
   constructor(props){
     super(props);
@@ -89,6 +91,24 @@ class Login extends Component {
   handleClick = () => {
     this.props.history.push("signup"); 
   }
+
+  responseGoogle = (response) => {
+    console.log(response);
+    if(response.profileObj){
+      var user = {};
+      user.isUserLoggedIn = true;
+      user.name = response.profileObj.givenName;
+      console.log(user);
+      localStorage.setItem('user',JSON.stringify(user));
+      this.props.history.push({
+        pathname: '/app/dashboard',
+        state: { userName: response.profileObj.givenName }
+      })
+    }
+    else{
+      this.props.history.push("login"); 
+    }
+  }
   
   render() {
     return (
@@ -128,6 +148,18 @@ class Login extends Component {
                         </div>
                         <div className="form-group">
                           <input type="submit" className="btn btn-lg btn-primary btn-block" value="Sign in" data-toggle="modal" onClick={this.handleSubmit}/>
+                        </div>
+                        <div className="form-group">
+                        {/* <GoogleLogin clientId="1011045593602-qob28gmvmsvskk8t7uepl80c8eaaajqo.apps.googleusercontent.com" buttonText="Login" onSuccess={this.responseGoogle} onFailure={this.responseGoogle}/> */}
+
+                        <GoogleLogin
+                          clientId="1011045593602-qob28gmvmsvskk8t7uepl80c8eaaajqo.apps.googleusercontent.com"
+                          render={renderProps => (
+                            <button className="btn btn-danger" onClick={renderProps.onClick}>Google+</button>
+                          )}
+                          buttonText="Google+"
+                          onSuccess={this.responseGoogle}
+                          onFailure={this.responseGoogle}/>
                         </div>
                       </div>
                     </div>

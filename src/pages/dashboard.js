@@ -19,6 +19,7 @@ class Dashboard extends Component {
 
   componentWillMount(){
     var user = localStorage.getItem('user');
+    console.log(user);
     if(user == null){
       this.props.history.push({
         pathname: '/login'
