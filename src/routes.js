@@ -9,5 +9,6 @@ export default (
     <Route path="/app/:page" component={Dashboard}></Route>
     <Route path="/login" component={Login}></Route>
     <Route path="/signup" component={Signup}></Route>
+    <Route path="/" component={Login}></Route>
   </Switch>
 )
