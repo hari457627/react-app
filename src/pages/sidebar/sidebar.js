@@ -13,12 +13,10 @@ class Sidebar extends Component {
   }
   
   setActiveTab = (id) =>{
-    // this.setState({ selectedTabId:id });
     this.props.handleTabIndex(id);
   }
 
   shouldComponentUpdate(a,b){
-    console.log(a,b);
     return true;
   }
 

@@ -40,7 +40,6 @@ class Dashboard extends Component {
   }
   
   saveFormMethod = (formObj)=>{
-    console.log(formObj);
     this.setState({formData:formObj});
     this.setState({tabIndex:6},()=>console.log(this.state));
     this.renderPage();
