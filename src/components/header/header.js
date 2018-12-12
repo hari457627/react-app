@@ -11,8 +11,10 @@ class Header extends Component {
 
   handleLogout = () =>{
     localStorage.clear();
-    console.log(this.props.history);
-    this.props.history.push("login");
+
+    console.log(this.props);
+    // this.props.history.push("/login"); 
+    this.props.handleLogOut()
   }
 
   render() {
