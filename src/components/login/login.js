@@ -4,6 +4,8 @@ import './login.css';
 import Alert from './../alerts/alerts';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import GoogleLogin from 'react-google-login';
+import  FacebookLogin  from 'react-facebook-login';
+//import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 class Login extends Component {
   constructor(props){
@@ -18,6 +20,7 @@ class Login extends Component {
     this.userNameChange = this.userNameChange.bind(this);
     this.passwordChange = this.passwordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.responseFacebook=this.responseFacebook.bind(this);
   }
 
   componentWillMount(){
@@ -109,6 +112,21 @@ class Login extends Component {
       this.props.history.push("login"); 
     }
   }
+
+  responseFacebook = (response) => {
+    console.log(response);
+    if(response.id){
+      var user = {};
+      user.isUserLoggedIn = true;
+      user.name = response.name;
+      console.log(user);
+      localStorage.setItem('user',JSON.stringify(user));
+      this.props.history.push('app/dashboard');
+    }
+    else{
+      this.props.history.push('login');
+    }
+  }
   
   render() {
     return (
@@ -160,6 +178,14 @@ class Login extends Component {
                           buttonText="Google+"
                           onSuccess={this.responseGoogle}
                           onFailure={this.responseGoogle}/>
+
+                        <FacebookLogin
+                          appId="334463787372880"
+                          callback={this.responseFacebook}
+                          render={renderProps => (
+                            <button className="btn btn-primary fb_login" onClick={renderProps.onClick}>Facebook</button>
+                          )}
+                        />
                         </div>
                       </div>
                     </div>
