@@ -132,6 +132,7 @@ class Uiforms extends Component {
                   <option>password</option>
                 </select>
               </div>
+              
             </div>
           )
         )

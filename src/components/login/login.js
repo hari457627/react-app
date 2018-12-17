@@ -5,7 +5,9 @@ import Alert from './../alerts/alerts';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import GoogleLogin from 'react-google-login';
 import  FacebookLogin  from 'react-facebook-login';
-//import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+//import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { createStore } from 'redux'
+
 
 class Login extends Component {
   constructor(props){

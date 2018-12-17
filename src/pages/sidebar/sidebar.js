@@ -62,9 +62,7 @@ class Sidebar extends Component {
                 </a>
               </li>
               <li className={ (this.props.tabIndex == 7) ? 'active': '' } onClick={() => this.setActiveTab(7) }>
-                <a>
-                  <Link to="/app/reactstrapForms" component={ReactstrapForms}><i className="fa fa-dashboard fa-lg"></i> Reactstrap Forms</Link>
-                </a>
+                <Link to="/app/reactstrapForms" component={ReactstrapForms}><i className="fa fa-dashboard fa-lg"></i> Reactstrap Forms</Link>
               </li>
               <li className={ (this.props.tabIndex == 8) ? 'active': '' } onClick={() => this.setActiveTab(8) }>
                 <a>
