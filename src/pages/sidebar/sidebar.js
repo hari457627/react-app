@@ -12,9 +12,16 @@ class Sidebar extends Component {
     }
     this.setActiveTab = this.setActiveTab.bind(this);
   }
+
+  componentWillMount(){
+    if(localStorage.getItem('tabIndex') !== null){
+      this.props.handleTabIndex(localStorage.getItem('tabIndex'));
+    }
+  }
   
   setActiveTab = (id) =>{
     this.props.handleTabIndex(id);
+    localStorage.setItem('tabIndex',id);
   }
 
   shouldComponentUpdate(a,b){
