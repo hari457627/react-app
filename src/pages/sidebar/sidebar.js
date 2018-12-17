@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './sidebar.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import UIForms from './../uiforms/uiforms';
+import ReactstrapForms from './../reactstrapForms/reactstrapform';
 
 class Sidebar extends Component {
   constructor(props){
@@ -59,8 +60,13 @@ class Sidebar extends Component {
                 <a>
                 <i className="fa fa-user fa-lg"></i> Created Forms
                 </a>
-                </li>
+              </li>
               <li className={ (this.props.tabIndex == 7) ? 'active': '' } onClick={() => this.setActiveTab(7) }>
+                <a>
+                  <Link to="/app/reactstrapForms" component={ReactstrapForms}><i className="fa fa-dashboard fa-lg"></i> Reactstrap Forms</Link>
+                </a>
+              </li>
+              <li className={ (this.props.tabIndex == 8) ? 'active': '' } onClick={() => this.setActiveTab(8) }>
                 <a>
                 <i className="fa fa-users fa-lg"></i> Users
                 </a>

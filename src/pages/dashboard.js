@@ -6,7 +6,7 @@ import { Router, Route, Switch} from 'react-router-dom';
 import Dashboardcomponent from './dashboardContent/dashboardContent';
 import UIForms from './uiforms/uiforms';
 import CreatedForms from './formsCreated/formscreated';
-
+import ReactstrapForms from './reactstrapForms/reactstrapform';
 class Dashboard extends Component {
   constructor(props){
     super(props);
@@ -62,6 +62,9 @@ class Dashboard extends Component {
       break;
       case "createdForms":
         return <CreatedForms formData={this.state.formData}/> ;
+      break;
+      case "reactstrapForms":
+        return <ReactstrapForms/> ;
       break;
       default:
         return <Dashboardcomponent/>;
