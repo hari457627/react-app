@@ -9,6 +9,9 @@
       background-color: inherit;
       color: #fff;
   }
+  .navbar-header{
+    min-height: 70px;
+  }
 }
 
 .navbar{
