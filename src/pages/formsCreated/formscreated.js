@@ -5,18 +5,16 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class FormsCreated extends Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       field1:{}
     }
   }
 
   componentWillMount(){
+    console.log(this.props.location.state.formData);
     let field1 = {};
-    // field1 = this.props.formData.field1;
-    field1 = this.props.formData;
+    field1 = this.props.location.state.formData;
     this.setState({field1});
-    console.log(this.state);
   }
   
   render() {

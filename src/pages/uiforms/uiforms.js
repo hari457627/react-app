@@ -74,8 +74,11 @@ class Uiforms extends Component {
     var finalObj = {};
     finalObj.fields = [];
     finalObj.fields = sampleObj;
-    console.log(finalObj);
-    this.props.saveForm(finalObj)
+    // this.props.saveForm(finalObj);
+    this.props.history.push({
+      pathname: '/app/createdforms',
+      state: { formData: finalObj }
+    })
   }
 
   noOfInputsChange(e){

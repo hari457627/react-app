@@ -36,47 +36,48 @@ class Dashboard extends Component {
     })
   }
   
-  componentDidMount(){
-    const {match} = this.props;
-  }
+  // componentDidMount(){
+  //   const {match} = this.props;
+  // }
   
   saveFormMethod = (formObj)=>{
     this.setState({formData:formObj});
     this.setState({tabIndex:6},()=>console.log(this.state));
-    this.renderPage();
-    this.props.match.params.page = 'createdForms';
+    // this.renderPage();
+    // this.props.match.params.page = 'createdForms';
   }
 
   handleTabIndex = (index) => {
     this.setState({tabIndex:index})
   }
 
-  renderPage = ()=>{
-    var page = this.props.match.params.page;
-    switch (page){
-      case "dashboard":
-        return <Dashboardcomponent/>;
-      break;
-      case "forms":
-        return <UIForms saveForm={this.saveFormMethod}/> ;
-      break;
-      case "createdForms":
-        return <CreatedForms formData={this.state.formData}/> ;
-      break;
-      case "reactstrapForms":
-        return <ReactstrapForms/> ;
-      break;
-      default:
-        return <Dashboardcomponent/>;
-    }
-  }
+  // renderPage = ()=>{
+  //   var page = this.props.match.params.page;
+  //   switch (page){
+  //     case "dashboard":
+  //       return <Dashboardcomponent/>;
+  //     break;
+  //     case "forms":
+  //       return <UIForms saveForm={this.saveFormMethod}/> ;
+  //     break;
+  //     case "createdForms":
+  //       return <CreatedForms formData={this.state.formData}/> ;
+  //     break;
+  //     case "reactstrapForms":
+  //       return <ReactstrapForms/> ;
+  //     break;
+  //     default:
+  //       return <Dashboardcomponent/>;
+  //   }
+  // }
   render() {
     return (
       <div className="dashboard">
         <Header user={this.state.user} handleLogOut={this.handleLogOut}></Header>
         <Sidebar tabIndex={this.state.tabIndex} handleTabIndex={e => this.handleTabIndex(e)}></Sidebar>
         <div className="dashboardcontentbody">
-          {this.renderPage()}
+          {/* {this.renderPage()} */}
+          {this.props.children}
         </div>
 		  </div>
     )
