@@ -9,9 +9,11 @@ import CreatedForms from './pages/formsCreated/formscreated';
 
 export default (
   <Switch>
-    <Route path="/app" render={()=>{
+    <Route path="/login" component={Login}></Route>
+    <Route path="/signup" component={Signup}></Route>
+    <Route path="/app" render={(props)=>{
       return (
-      <Dashboard>
+      <Dashboard {...props}>
         <Switch>
           <Route exact path="/app/dashboard" component={DashboardContent} />
           <Route path="/app/forms" component={UiForms} />
@@ -19,8 +21,6 @@ export default (
         </Switch>
       </Dashboard>)
     }}></Route>
-    <Route path="/login" component={Login}></Route>
-    <Route path="/signup" component={Signup}></Route>
     <Route path="/" component={Login}></Route>
   </Switch>
 )

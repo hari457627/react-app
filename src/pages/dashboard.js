@@ -7,6 +7,7 @@ import Dashboardcomponent from './dashboardContent/dashboardContent';
 import UIForms from './uiforms/uiforms';
 import CreatedForms from './formsCreated/formscreated';
 import ReactstrapForms from './reactstrapForms/reactstrapform';
+import { withRouter } from 'react-router-dom';
 class Dashboard extends Component {
   constructor(props){
     super(props);

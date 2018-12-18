@@ -98,12 +98,10 @@ class Login extends Component {
   }
 
   responseGoogle = (response) => {
-    console.log(response);
     if(response.profileObj){
       var user = {};
       user.isUserLoggedIn = true;
       user.name = response.profileObj.givenName;
-      console.log(user);
       localStorage.setItem('user',JSON.stringify(user));
       this.props.history.push({
         pathname: '/app/dashboard',
@@ -116,12 +114,10 @@ class Login extends Component {
   }
 
   responseFacebook = (response) => {
-    console.log(response);
     if(response.id){
       var user = {};
       user.isUserLoggedIn = true;
       user.name = response.name;
-      console.log(user);
       localStorage.setItem('user',JSON.stringify(user));
       this.props.history.push('app/dashboard');
     }
