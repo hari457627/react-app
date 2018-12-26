@@ -15,11 +15,13 @@ class Dashboard extends Component {
     this.state = {
       formData : {},
       tabIndex: 1,
-      user:{}
+      user:{},
+      loading: true
     }
   }
 
   componentWillMount(){
+    setTimeout(() => this.setState({ loading: false }), 10);
     var user = JSON.parse(localStorage.getItem('user'));
     if(user == null){
       this.props.history.push({
@@ -76,6 +78,13 @@ class Dashboard extends Component {
   //   }
   // }
   render() {
+    const { loading } = this.state;
+    if(loading) { // if your component doesn't have to wait for an async action, remove this block 
+      return (
+        <div className="loader">
+        </div>
+      ) // render null when app is not ready
+    }
     return (
       <div className="dashboard">
         <Header user={this.state.user} handleLogOut={this.handleLogOut}></Header>

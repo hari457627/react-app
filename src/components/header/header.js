@@ -22,8 +22,11 @@ class Header extends Component {
     if('profilePic' in this.props.user){
       this.setState({userLogo:this.props.user.profilePic});
     }
+    else if(localStorage.getItem('user')){
+      this.setState({userLogo:JSON.parse(localStorage.getItem('user')).profilePic})
+    }
   }
-
+  
   render() {
     return (
       <nav className="navbar navbar-default navbar-inverse" role="navigation">
@@ -41,7 +44,7 @@ class Header extends Component {
             <ul className="nav navbar-nav navbar-right">
               <li><p className="navbar-text">Hello {this.props.user.name}</p></li>
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown"><img src={userLogo} className="userLogoSettings"/><span className="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown"><img src={this.state.userLogo} className="userLogoSettings"/><span className="caret"></span></a>
                 <ul id="login-dp" className="dropdown-menu">
                   <li onClick={this.handleLogout}><a>Logout</a></li>
                   <li><a>Proile settings</a></li>
