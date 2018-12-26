@@ -6,7 +6,7 @@ import Signup from './components/signup/signup';
 import DashboardContent from './pages/dashboardContent/dashboardContent'
 import UiForms from './pages/uiforms/uiforms';
 import CreatedForms from './pages/formsCreated/formscreated';
-
+import ProfileSettings from './pages/settings/profilesettings';
 export default (
   <Switch>
     <Route path="/login" component={Login}></Route>
@@ -18,6 +18,7 @@ export default (
           <Route exact path="/app/dashboard" component={DashboardContent} />
           <Route path="/app/forms" component={UiForms} />
           <Route path="/app/createdforms" component={CreatedForms} />
+          <Route path="/app/profilesettings" component={ProfileSettings} />
         </Switch>
       </Dashboard>)
     }}></Route>

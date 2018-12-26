@@ -7,11 +7,21 @@ import routes from './../../routes';
 class Header extends Component {
   constructor(props){
     super(props);
+    console.log(props);
+    this.state = {
+      userLogo:userLogo
+    }
   }
 
   handleLogout = () =>{
     localStorage.clear();
-    this.props.handleLogOut()
+    this.props.handleLogOut();
+  }
+
+  componentWillMount(){
+    if('profilePic' in this.props.user){
+      this.setState({userLogo:this.props.user.profilePic});
+    }
   }
 
   render() {
@@ -29,7 +39,7 @@ class Header extends Component {
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><p className="navbar-text">Hello {this.props.user}</p></li>
+              <li><p className="navbar-text">Hello {this.props.user.name}</p></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown"><img src={userLogo} className="userLogoSettings"/><span className="caret"></span></a>
                 <ul id="login-dp" className="dropdown-menu">

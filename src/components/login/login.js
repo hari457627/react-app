@@ -23,6 +23,7 @@ class Login extends Component {
     this.passwordChange = this.passwordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.responseFacebook=this.responseFacebook.bind(this);
+    this.responseGoogle = this.responseGoogle.bind(this);
   }
 
   componentWillMount(){
@@ -53,13 +54,12 @@ class Login extends Component {
         this.refs.alert.toggle();
     }
     else {
-      fetch('http://10.9.9.202:2001/api/users/login', {
+      fetch('http://10.9.9.10:2001/api/user/login', {
         method: 'POST',
-        mode:"cors",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
           "username": this.state.userName,
-          "password": this.state.password,
+          "password": this.state.password
         })
       }).then((res) => 
         res.json()
@@ -68,18 +68,21 @@ class Login extends Component {
         if(data.error){
           alert('invalid user');
         }
+        else if(data.message.includes('error') || data.message.includes('invalid')){
+          alert('invalid user');
+        }
         else{
-          let user = {
-            name:this.state.userName,
-            isUserLoggedIn: true
-          }
+          let user = data.user;
+          user.token = data.token;
+          user.isUserLoggedIn = true;
+          user.isSocialLogged = false;
           localStorage.setItem('user', JSON.stringify(user));
           this.setState({
             isUserLoggedIn: true
           })
           this.props.history.push({
             pathname: '/app/dashboard',
-            state: { userName: this.state.userName }
+            state: { user: user }
           })
         }
       })
@@ -101,6 +104,7 @@ class Login extends Component {
     if(response.profileObj){
       var user = {};
       user.isUserLoggedIn = true;
+      user.isSocialLogged = true;
       user.name = response.profileObj.givenName;
       localStorage.setItem('user',JSON.stringify(user));
       this.props.history.push({
@@ -117,6 +121,7 @@ class Login extends Component {
     if(response.id){
       var user = {};
       user.isUserLoggedIn = true;
+      user.isSocialLogged = true;
       user.name = response.name;
       localStorage.setItem('user',JSON.stringify(user));
       this.props.history.push('app/dashboard');

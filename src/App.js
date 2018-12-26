@@ -21,9 +21,7 @@ class App extends Component {
       ) // render null when app is not ready
     }
     return (
-      <div className="loader"> 
-      <Route>{routes}</Route>
-      </div>  
+      <Route>{routes}</Route> 
     )
   }
 }

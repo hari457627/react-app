@@ -51,10 +51,13 @@ class Signup extends Component {
 				this.refs.alert.toggle();
 			}
 			else if(this.state.cpassword == this.state.password){
-				fetch('http://10.9.9.202:2001/api/users', {
+				fetch('http://10.9.9.10:2001/api/users/signup', {
 					method: 'POST',
 					"access-control-allow-origin" : "*",
-					headers: {'Content-Type':'application/json'},
+					headers:{
+						"Content-Type":"application/json",
+						"Accept":"application/json"
+					},
 					body: JSON.stringify({
 						"name": this.state.name,
 						"username": this.state.username,

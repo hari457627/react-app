@@ -3,10 +3,11 @@ import './sidebar.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import UIForms from './../uiforms/uiforms';
 import ReactstrapForms from './../reactstrapForms/reactstrapform';
-
+import Settings from './../settings/profilesettings';
 class Sidebar extends Component {
   constructor(props){
     super(props);
+    console.log(props);
     this.state = {
       selectedTabId: 1
     }
@@ -72,9 +73,7 @@ class Sidebar extends Component {
                 <Link to="/app/reactstrapForms" component={ReactstrapForms}><i className="fa fa-dashboard fa-lg"></i> Reactstrap Forms</Link>
               </li>
               <li className={ (this.props.tabIndex == 8) ? 'active': '' } onClick={() => this.setActiveTab(8) }>
-                <a>
-                <i className="fa fa-users fa-lg"></i> Users
-                </a>
+                <Link to={{ pathname: '/app/profilesettings', state: { user:this.props.user} }} component={Settings}><i className="fa fa-users fa-lg"></i> Profile Settings</Link>
               </li>
             </ul>
           </div>

@@ -11,22 +11,26 @@ import { withRouter } from 'react-router-dom';
 class Dashboard extends Component {
   constructor(props){
     super(props);
+    console.log(props);
     this.state = {
       formData : {},
       tabIndex: 1,
-      user:''
+      user:{}
     }
   }
 
   componentWillMount(){
-    var user = localStorage.getItem('user');
+    var user = JSON.parse(localStorage.getItem('user'));
     if(user == null){
       this.props.history.push({
         pathname: '/login'
       })
     }
-    else if(user !== null){
-      this.setState({user:JSON.parse(localStorage.getItem('user')).name})
+    else if(this.props.location.state){
+      this.setState({user:this.props.location.state.user});
+    }
+    else{
+      this.setState({user:user});
     }
   }
 
@@ -75,7 +79,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Header user={this.state.user} handleLogOut={this.handleLogOut}></Header>
-        <Sidebar tabIndex={this.state.tabIndex} handleTabIndex={e => this.handleTabIndex(e)}></Sidebar>
+        <Sidebar tabIndex={this.state.tabIndex} user={this.state.user}  handleTabIndex={e => this.handleTabIndex(e)}></Sidebar>
         <div className="dashboardcontentbody">
           {/* {this.renderPage()} */}
           {this.props.children}
