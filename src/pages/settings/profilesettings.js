@@ -126,6 +126,7 @@ class Settings extends Component {
 						}
 					}
 					else{
+            alert('profile updated successfully');
 						this.props.history.push("/app/profilesettings");
 					}
 				}

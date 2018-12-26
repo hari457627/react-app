@@ -83,6 +83,7 @@ class Signup extends Component {
 						}
 					}
 					else{
+						alert('profile updated successfully');
 						this.props.history.push("/login");
 					}
 				}
