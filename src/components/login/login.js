@@ -77,6 +77,7 @@ class Login extends Component {
           user.isUserLoggedIn = true;
           user.isSocialLogged = false;
           localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('token',JSON.stringify(data.token));
           this.setState({
             isUserLoggedIn: true
           })

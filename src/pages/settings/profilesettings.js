@@ -7,7 +7,6 @@ import axios from 'axios';
 class Settings extends Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state={
       id:'',
       username: '',
@@ -26,16 +25,23 @@ class Settings extends Component {
   }
 
   componentWillMount(){
-    console.log(localStorage.getItem('user'));
-    console.log(this.props.location.state);
     if(this.props.location.state){
-      this.setState({username:this.props.location.state.user.username,mobile:this.props.location.state.user.mobile,email:this.props.location.state.user.email,name:this.props.location.state.user.name,id:this.props.location.state.user.id,accessToken:this.props.location.state.user.token});
+      this.setState({username:this.props.location.state.user.username,mobile:this.props.location.state.user.mobile,email:this.props.location.state.user.email,name:this.props.location.state.user.name,id:this.props.location.state.user.id,accessToken:JSON.parse(localStorage.getItem('token'))});
       if('profilePic' in this.props.location.state.user){
         this.setState({profilePic:this.props.location.state.user.profilePic})
       }
     }
     else if(localStorage.getItem('user')){
-      this.setState({id:JSON.parse(localStorage.getItem('user')).id,name:JSON.parse(localStorage.getItem('user')).name,email:JSON.parse(localStorage.getItem('user')).email,mobile:JSON.parse(localStorage.getItem('user')).mobile,username:JSON.parse(localStorage.getItem('user')).username,accessToken:JSON.parse(localStorage.getItem('user')).token,profilePic:JSON.parse(localStorage.getItem('user')).profilePic})
+      this.setState({id:JSON.parse(localStorage.getItem('user')).id,name:JSON.parse(localStorage.getItem('user')).name,email:JSON.parse(localStorage.getItem('user')).email,mobile:JSON.parse(localStorage.getItem('user')).mobile,username:JSON.parse(localStorage.getItem('user')).username})
+      if('profilePic' in JSON.parse(localStorage.getItem('user'))){
+        this.setState({profilePic:JSON.parse(localStorage.getItem('user')).profilePic})
+      }
+      if(JSON.parse(localStorage.getItem('token'))){
+        this.setState({accessToken:JSON.parse(localStorage.getItem('token')).token});
+      }
+      else{
+        this.setState({accessToken:JSON.parse(localStorage.getItem('user')).token});
+      }
     }
   }
 
@@ -111,6 +117,7 @@ class Settings extends Component {
 					})
         }).then((res) => res.json())
         .then((data) => {
+          console.log(data);
 					if(data.message){
 						alert(data.message)
 					}
@@ -127,6 +134,9 @@ class Settings extends Component {
 					}
 					else{
             alert('profile updated successfully');
+            
+            localStorage.setItem('user',JSON.stringify(data));
+            console.log(localStorage.getItem('user'))
 						this.props.history.push("/app/profilesettings");
 					}
 				}

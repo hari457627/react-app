@@ -6,10 +6,11 @@ import Logo from '../../images/Wavelabs-logo.png';
 import routes from './../../routes';
 class Header extends Component {
   constructor(props){
-    super(props);
     console.log(props);
+    super(props);
     this.state = {
-      userLogo:userLogo
+      userLogo:userLogo,
+      user:{}
     }
   }
 
@@ -18,12 +19,23 @@ class Header extends Component {
     this.props.handleLogOut();
   }
 
+  profileSettingsNavigate = () => {
+    this.props.handleProfileSettings();
+  }
+
   componentWillMount(){
-    if('profilePic' in this.props.user){
-      this.setState({userLogo:this.props.user.profilePic});
+    if(this.props.user){
+      if('profilePic' in this.props.user){
+        this.setState({userLogo:this.props.user.profilePic});
+      }
     }
     else if(localStorage.getItem('user')){
-      this.setState({userLogo:JSON.parse(localStorage.getItem('user')).profilePic})
+      console.log(localStorage.getItem('user'));
+      this.setState({user:JSON.parse(localStorage.getItem('user'))})
+      if(JSON.parse(localStorage.getItem('user')).profilePic){
+        this.setState({userLogo:JSON.parse(localStorage.getItem('user')).profilePic});
+        this.props.user = JSON.parse(localStorage.getItem('user'));
+      }
     }
   }
   
@@ -42,12 +54,12 @@ class Header extends Component {
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><p className="navbar-text">Hello {this.props.user.name}</p></li>
+              <li><p className="navbar-text">Hello {this.state.user.name || this.props.user.name}</p></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown"><img src={this.state.userLogo} className="userLogoSettings"/><span className="caret"></span></a>
                 <ul id="login-dp" className="dropdown-menu">
                   <li onClick={this.handleLogout}><a>Logout</a></li>
-                  <li><a>Proile settings</a></li>
+                  <li onClick={this.profileSettingsNavigate}><a>Proile settings</a></li>
                 </ul>
               </li>
             </ul>

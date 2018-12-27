@@ -11,7 +11,6 @@ import { withRouter } from 'react-router-dom';
 class Dashboard extends Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       formData : {},
       tabIndex: 1,
@@ -40,6 +39,14 @@ class Dashboard extends Component {
     this.props.history.push({
       pathname: '/login',
       state: { isUserLoggedIn: false }
+    })
+  }
+
+  handleProfileSettings = () => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    this.props.history.push({
+      pathname: '/app/profilesettings',
+      state: { user: user }
     })
   }
   
@@ -87,7 +94,7 @@ class Dashboard extends Component {
     }
     return (
       <div className="dashboard">
-        <Header user={this.state.user} handleLogOut={this.handleLogOut}></Header>
+        <Header user={this.state.user} handleLogOut={this.handleLogOut} handleProfileSettings={this.handleProfileSettings}></Header>
         <Sidebar tabIndex={this.state.tabIndex} user={this.state.user}  handleTabIndex={e => this.handleTabIndex(e)}></Sidebar>
         <div className="dashboardcontentbody">
           {/* {this.renderPage()} */}
