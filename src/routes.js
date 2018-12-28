@@ -7,6 +7,7 @@ import DashboardContent from './pages/dashboardContent/dashboardContent'
 import UiForms from './pages/uiforms/uiforms';
 import CreatedForms from './pages/formsCreated/formscreated';
 import ProfileSettings from './pages/settings/profilesettings';
+import ReduxList from './pages/reduxSample/reduxSample';
 export default (
   <Switch>
     <Route path="/login" component={Login}></Route>
@@ -19,6 +20,7 @@ export default (
           <Route path="/app/forms" component={UiForms} />
           <Route path="/app/createdforms" component={CreatedForms} />
           <Route path="/app/profilesettings" component={ProfileSettings} />
+          <Route path="/app/reduxlist" component={ReduxList} />
         </Switch>
       </Dashboard>)
     }}></Route>

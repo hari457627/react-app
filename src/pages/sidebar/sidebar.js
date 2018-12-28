@@ -75,6 +75,9 @@ class Sidebar extends Component {
               <li className={ (this.props.tabIndex == 8) ? 'active': '' } onClick={() => this.setActiveTab(8) }>
                 <Link to={{ pathname: '/app/profilesettings', state: { user:this.props.user} }} component={Settings}><i className="fa fa-users fa-lg"></i> Profile Settings</Link>
               </li>
+              <li className={ (this.props.tabIndex == 9) ? 'active': '' } onClick={() => this.setActiveTab(9) }>
+                <Link to={{ pathname: '/app/reduxlist' }}><i className="fa fa-users fa-lg"></i> Redux Users</Link>
+              </li>
             </ul>
           </div>
         </div>
