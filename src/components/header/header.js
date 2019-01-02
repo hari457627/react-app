@@ -4,6 +4,9 @@ import { Router, Route, Switch} from 'react-router-dom';
 import userLogo from '../../images/userLogo.png';
 import Logo from '../../images/Wavelabs-logo.png';
 import routes from './../../routes';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {selectUser} from './../../actions/index';
 class Header extends Component {
   constructor(props){
     console.log(props);
@@ -71,11 +74,3 @@ class Header extends Component {
 }
 
 export default Header;
-
-
-
-
-
-
-
-

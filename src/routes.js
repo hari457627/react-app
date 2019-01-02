@@ -8,6 +8,10 @@ import UiForms from './pages/uiforms/uiforms';
 import CreatedForms from './pages/formsCreated/formscreated';
 import ProfileSettings from './pages/settings/profilesettings';
 import ReduxList from './pages/reduxSample/reduxSample';
+import Sample1 from './pages/sample/sample1';
+import Sample2 from './pages/sample/sample2';
+import Sample3 from './pages/sample/sample3';
+
 export default (
   <Switch>
     <Route path="/login" component={Login}></Route>
@@ -17,6 +21,9 @@ export default (
       <Dashboard {...props}>
         <Switch>
           <Route exact path="/app/dashboard" component={DashboardContent} />
+          <Route exact path="/app/dashboard/sample1" component={Sample1} />
+          <Route path="/app/dashboard/sample2" component={Sample2} />
+          <Route path="/app/dashboard/sample3" component={Sample3} />
           <Route path="/app/forms" component={UiForms} />
           <Route path="/app/createdforms" component={CreatedForms} />
           <Route path="/app/profilesettings" component={ProfileSettings} />

@@ -8,14 +8,12 @@ import  FacebookLogin  from 'react-facebook-login';
 //import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { createStore } from 'redux'
 
-
 class Login extends Component {
   constructor(props){
     super(props);
     this.state={
         userName: '',
         password: '',
-        isUserLoggedIn: false,
         alertMessage: '',
         showWarning:false
     }
@@ -78,6 +76,7 @@ class Login extends Component {
           user.isSocialLogged = false;
           localStorage.setItem('user', JSON.stringify(user));
           localStorage.setItem('token',JSON.stringify(data.token));
+          
           this.setState({
             isUserLoggedIn: true
           })
@@ -102,15 +101,19 @@ class Login extends Component {
   }
 
   responseGoogle = (response) => {
+    console.log(response);
     if(response.profileObj){
       var user = {};
       user.isUserLoggedIn = true;
       user.isSocialLogged = true;
-      user.name = response.profileObj.givenName;
+      user.profilePic = response.profileObj.imageUrl;
+      user.email = response.profileObj.email;
+      user.name = response.profileObj.name;
+      user.username = response.profileObj.givenName;
       localStorage.setItem('user',JSON.stringify(user));
       this.props.history.push({
         pathname: '/app/dashboard',
-        state: { userName: response.profileObj.givenName }
+        state: { user: user }
       })
     }
     else{
@@ -119,17 +122,18 @@ class Login extends Component {
   }
 
   responseFacebook = (response) => {
-    if(response.id){
-      var user = {};
-      user.isUserLoggedIn = true;
-      user.isSocialLogged = true;
-      user.name = response.name;
-      localStorage.setItem('user',JSON.stringify(user));
-      this.props.history.push('app/dashboard');
-    }
-    else{
-      this.props.history.push('login');
-    }
+    console.log(response);
+    // if(response.id){
+    //   var user = {};
+    //   user.isUserLoggedIn = true;
+    //   user.isSocialLogged = true;
+    //   user.name = response.name;
+    //   localStorage.setItem('user',JSON.stringify(user));
+    //   this.props.history.push('app/dashboard');
+    // }
+    // else{
+    //   this.props.history.push('login');
+    // }
   }
   
   render() {

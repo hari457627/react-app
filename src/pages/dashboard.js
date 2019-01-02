@@ -22,6 +22,7 @@ class Dashboard extends Component {
   componentWillMount(){
     setTimeout(() => this.setState({ loading: false }), 10);
     var user = JSON.parse(localStorage.getItem('user'));
+    console.log(user);
     if(user == null){
       this.props.history.push({
         pathname: '/login'
@@ -84,6 +85,7 @@ class Dashboard extends Component {
   //       return <Dashboardcomponent/>;
   //   }
   // }
+  
   render() {
     const { loading } = this.state;
     if(loading) { // if your component doesn't have to wait for an async action, remove this block 
