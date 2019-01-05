@@ -29,6 +29,7 @@ class DashboardContent extends Component {
         <Link to="/app/dashboard/sample1">Sample 1</Link>
         <Link to="/app/dashboard/sample2">Sample 2</Link>
         <Link to="/app/dashboard/sample3">Sample 3</Link>
+        
 		  </div>
     );
   }

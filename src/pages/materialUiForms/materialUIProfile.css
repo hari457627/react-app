@@ -1,0 +1,13 @@
+.card_content{
+  padding: 30px;
+}
+.card_header_content{
+  padding: 30px !important;
+  background-color: rgb(241, 245, 248)
+}
+.bank_details{
+  margin-top: 10px !important;
+}
+.bank_details_section{
+  margin-top: 10px !important;
+}

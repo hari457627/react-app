@@ -7,7 +7,6 @@ import Settings from './../settings/profilesettings';
 class Sidebar extends Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       selectedTabId: 1
     }
@@ -77,6 +76,15 @@ class Sidebar extends Component {
               </li>
               <li className={ (this.props.tabIndex == 9) ? 'active': '' } onClick={() => this.setActiveTab(9) }>
                 <Link to={{ pathname: '/app/reduxlist' }}><i className="fa fa-users fa-lg"></i> Redux Users</Link>
+              </li>
+              <li className={ (this.props.tabIndex == 10) ? 'active': '' } onClick={() => this.setActiveTab(10) }>
+                <Link to={{ pathname: '/app/materialUITable' }}><i className="fa fa-users fa-lg"></i> Material UI tables</Link>
+              </li>
+              <li className={ (this.props.tabIndex == 11) ? 'active': '' } onClick={() => this.setActiveTab(11) }>
+                <Link to={{ pathname: '/app/materialUIForms' }}><i className="fa fa-users fa-lg"></i> Material UI forms</Link>
+              </li>
+              <li className={ (this.props.tabIndex == 12) ? 'active': '' } onClick={() => this.setActiveTab(12) }>
+                <Link to={{ pathname: '/app/materialUIProfile' }}><i className="fa fa-users fa-lg"></i> Material UI profile</Link>
               </li>
             </ul>
           </div>

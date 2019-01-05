@@ -9,7 +9,6 @@ import {connect} from 'react-redux';
 import {selectUser} from './../../actions/index';
 class Header extends Component {
   constructor(props){
-    console.log(props);
     super(props);
     this.state = {
       userLogo:userLogo,

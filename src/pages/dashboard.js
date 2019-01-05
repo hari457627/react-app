@@ -22,7 +22,6 @@ class Dashboard extends Component {
   componentWillMount(){
     setTimeout(() => this.setState({ loading: false }), 10);
     var user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
     if(user == null){
       this.props.history.push({
         pathname: '/login'

@@ -5,6 +5,7 @@ import './App.css';
 import routes from './routes';
 
 class App extends Component {
+  
   state = {
     loading: true
   };

@@ -11,7 +11,9 @@ import ReduxList from './pages/reduxSample/reduxSample';
 import Sample1 from './pages/sample/sample1';
 import Sample2 from './pages/sample/sample2';
 import Sample3 from './pages/sample/sample3';
-
+import MaterialUITable from './pages/materialUI/materialUI';
+import MaterialUIForms from './pages/materialUiForms/materialUIForms';
+import MaterialUIProfile from './pages/materialUiForms/materialUIProfile';
 export default (
   <Switch>
     <Route path="/login" component={Login}></Route>
@@ -19,6 +21,9 @@ export default (
     <Route path="/app" render={(props)=>{
       return (
       <Dashboard {...props}>
+        {
+          console.log(props)
+        }
         <Switch>
           <Route exact path="/app/dashboard" component={DashboardContent} />
           <Route exact path="/app/dashboard/sample1" component={Sample1} />
@@ -28,6 +33,9 @@ export default (
           <Route path="/app/createdforms" component={CreatedForms} />
           <Route path="/app/profilesettings" component={ProfileSettings} />
           <Route path="/app/reduxlist" component={ReduxList} />
+          <Route path="/app/materialUITable" component={MaterialUITable} />
+          <Route path="/app/materialUIForms" component={MaterialUIForms} />
+          <Route path="/app/materialUIProfile" component={MaterialUIProfile} />
         </Switch>
       </Dashboard>)
     }}></Route>
