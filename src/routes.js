@@ -14,6 +14,8 @@ import Sample3 from './pages/sample/sample3';
 import MaterialUITable from './pages/materialUI/materialUI';
 import MaterialUIForms from './pages/materialUiForms/materialUIForms';
 import MaterialUIProfile from './pages/materialUiForms/materialUIProfile';
+import CountryRestriction from './pages/countryRestriction/countryRestriction';
+import DraweeBankDetails from './pages/draweeBank/draweeBank';
 export default (
   <Switch>
     <Route path="/login" component={Login}></Route>
@@ -36,6 +38,8 @@ export default (
           <Route path="/app/materialUITable" component={MaterialUITable} />
           <Route path="/app/materialUIForms" component={MaterialUIForms} />
           <Route path="/app/materialUIProfile" component={MaterialUIProfile} />
+          <Route path="/app/countryRestriction" component={CountryRestriction} />
+          <Route path="/app/draweebank" component={DraweeBankDetails} />
         </Switch>
       </Dashboard>)
     }}></Route>

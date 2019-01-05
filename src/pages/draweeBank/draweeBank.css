@@ -1,0 +1,26 @@
+.headerTabs{
+  background-color: rgb(241, 245, 248);
+  box-shadow: none !important;
+}
+.tabLinks{
+  max-width: 200px !important;
+}
+.card_content{
+  padding: 30px;
+}
+.card_header_content{
+  padding: 30px !important;
+  background-color: rgb(241, 245, 248)
+}
+.bank_details{
+  margin-top: 10px !important;
+}
+.bank_details_section{
+  margin-top: 10px !important;
+}
+.tabContent{
+  padding: 0 !important;
+}
+.MuiTypography-root{
+  padding: 0 !important;
+}

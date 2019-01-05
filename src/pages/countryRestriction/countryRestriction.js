@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import './materialUIProfile.css';
+import './countryRestriction.css';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -25,7 +25,7 @@ const styles = theme => ({
   },
 });
 
-class MaterialUIProfile extends Component {
+class CountryRestriction extends Component {
   constructor(props){
     super(props);
     this.state = { 
@@ -54,41 +54,42 @@ class MaterialUIProfile extends Component {
             </CardContent>
           </CardActionArea>
           <div className="card_content">
-            <h3>Bank Details View</h3>
             <Grid container spacing={24} className="bank_details">
               <Grid item xs={4} className="bank_details_section">
-                <p><small>Bank Name</small></p>
-                <b>Axis</b>
+                <p><small>Unique Ref No</small></p>
+                <b>A123456</b>
               </Grid>
               <Grid item xs={4} className="bank_details_section">
-                <p><small>Bank Code</small></p>
-                <b>UTIB0000030</b>
+                <p><small>Service Provider Code</small></p>
+                <b>UAE</b>
               </Grid>
               <Grid item xs={4} className="bank_details_section">
-                <p><small>Fax</small></p>
-                <b>+91-22-24251800</b>
+                <p><small>Ccy Code</small></p>
+                <b>INR</b>
               </Grid>
               <Grid item xs={4} className="bank_details_section">
-                <p><small>Phone Number</small></p>
-                <b>+91-22-24251800</b>
+                <p><small>Instrument Type</small></p>
+                <b>Swift</b>
               </Grid>
               <Grid item xs={4} className="bank_details_section">
-                <p><small>Email</small></p>
-                <b>axisbank@gmail.com</b>
+                <p><small>Customer Type</small></p>
+                <b>LoremIpsum</b>
               </Grid>
               <Grid item xs={4} className="bank_details_section">
-                <p><small>Status</small></p>
+                <p><small>Beneficiary Type</small></p>
+                <b>LoremIpsum</b>
+              </Grid>
+              <Grid item xs={4} className="bank_details_section">
+                <p><small>Destination Country</small></p>
+                <b>Qatar</b>
+              </Grid>
+              <Grid item xs={4} className="bank_details_section">
+                <p><small>Delivery Option</small></p>
+                <b>LoremIpsum</b>
+              </Grid>
+              <Grid item xs={4} className="bank_details_section">
+                <p><small>Process Status</small></p>
                 <b>Active</b>
-              </Grid>
-              <Grid item xs={4} className="bank_details_section">
-                <p><small>Zip Code</small></p>
-                <b>97106</b>
-              </Grid>
-            </Grid>
-            <Grid container spacing={24} className="bank_details_section">
-              <Grid item xs={5}>
-                <p><small>Bank Address</small></p>
-                <b>Axis Bank Limited, Plot Number 22, SBR Towers, HUDA Techno Enclave, Madhapur, Hyderabad, Telengana</b>
               </Grid>
             </Grid>
           </div>
@@ -97,8 +98,8 @@ class MaterialUIProfile extends Component {
     )
   }
 }
-MaterialUIProfile.propTypes = {
+CountryRestriction.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MaterialUIProfile);
+export default withStyles(styles)(CountryRestriction);

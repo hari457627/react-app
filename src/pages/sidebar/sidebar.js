@@ -86,6 +86,12 @@ class Sidebar extends Component {
               <li className={ (this.props.tabIndex == 12) ? 'active': '' } onClick={() => this.setActiveTab(12) }>
                 <Link to={{ pathname: '/app/materialUIProfile' }}><i className="fa fa-users fa-lg"></i> Material UI profile</Link>
               </li>
+              <li className={ (this.props.tabIndex == 13) ? 'active': '' } onClick={() => this.setActiveTab(13) }>
+                <Link to={{ pathname: '/app/countryRestriction' }}><i className="fa fa-users fa-lg"></i> Country Restriction</Link>
+              </li>
+              <li className={ (this.props.tabIndex == 14) ? 'active': '' } onClick={() => this.setActiveTab(14) }>
+                <Link to={{ pathname: '/app/draweebank' }}><i className="fa fa-users fa-lg"></i>Drawee Bank</Link>
+              </li>
             </ul>
           </div>
         </div>
