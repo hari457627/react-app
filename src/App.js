@@ -3,7 +3,6 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router-do
 import createHistory from 'history/createBrowserHistory';
 import './App.css';
 import routes from './routes';
-
 class App extends Component {
   
   state = {

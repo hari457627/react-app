@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './reducers';
+require('dotenv').config();
 const store = createStore(allReducers);
 ReactDOM.render(<Router><Provider store={store}><App /></Provider></Router>, document.getElementById('root'));
 

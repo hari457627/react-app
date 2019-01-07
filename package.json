@@ -6,6 +6,8 @@
     "@material-ui/core": "^3.8.1",
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
+    "env-cmd": "^8.0.2",
     "parse": "^2.1.0",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
@@ -23,6 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "react-scripts dev",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
