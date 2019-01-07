@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import './materialUIProfile.css';
+import {MuiThemeProvider} from '@material-ui/core/styles';
+import getMuiTheme from "./theme.js";
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -29,17 +32,30 @@ class MaterialUIProfile extends Component {
   constructor(props){
     super(props);
     this.state = { 
+      bankDetails:{}
     }
+  }
+  componentDidMount(){
+    // axios.get(‘https://jsonplaceholder.typicode.com/posts/1’,{}).then((res)=>{
+    // //on success
+    // this.setState({
+    // userMsg:res.data
+    // });
+    // }).catch((error)=>{
+    // //on error
+    // alert(“There is an error in API call.”);
+    // });
   }
   
   render() {
     const { classes } = this.props;
     return (
       <div>
+        <MuiThemeProvider theme={getMuiTheme}>
         <Card className={classes.card}>
           <CardActionArea>
             <CardContent className="card_header_content">
-              <Grid container spacing={24}>
+              <Grid container spacing={12}>
                 <Grid item xs={4}>
                   <p><small>Created by</small></p>
                   <b>Yashwanth</b>
@@ -93,6 +109,7 @@ class MaterialUIProfile extends Component {
             </Grid>
           </div>
         </Card>
+        </MuiThemeProvider>
       </div>
     )
   }
