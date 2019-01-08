@@ -16,6 +16,7 @@ import MaterialUIForms from './pages/materialUiForms/materialUIForms';
 import MaterialUIProfile from './pages/materialUiForms/materialUIProfile';
 import CountryRestriction from './pages/countryRestriction/countryRestriction';
 import DraweeBankDetails from './pages/draweeBank/draweeBank';
+import BankBranchProfileView from './pages/bankBranchProfileView/bankBranchProfileView';
 export default (
   <Switch>
     <Route path="/login" component={Login}></Route>
@@ -40,6 +41,7 @@ export default (
           <Route path="/app/materialUIProfile" component={MaterialUIProfile} />
           <Route path="/app/countryRestriction" component={CountryRestriction} />
           <Route path="/app/draweebank" component={DraweeBankDetails} />
+          <Route path="/app/bankBranchProfileView" component={BankBranchProfileView} />
         </Switch>
       </Dashboard>)
     }}></Route>

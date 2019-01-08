@@ -92,6 +92,9 @@ class Sidebar extends Component {
               <li className={ (this.props.tabIndex == 14) ? 'active': '' } onClick={() => this.setActiveTab(14) }>
                 <Link to={{ pathname: '/app/draweebank' }}><i className="fa fa-users fa-lg"></i>Drawee Bank</Link>
               </li>
+              <li className={ (this.props.tabIndex == 15) ? 'active': '' } onClick={() => this.setActiveTab(15) }>
+                <Link to={{ pathname: '/app/bankBranchProfileView' }}><i className="fa fa-users fa-lg"></i>Bank Branch Details</Link>
+              </li>
             </ul>
           </div>
         </div>
